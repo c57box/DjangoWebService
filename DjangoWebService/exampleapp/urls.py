@@ -11,5 +11,5 @@ import app.views
 # admin.autodiscover()
 
 urlpatterns = [
-    url(r'^', app.views.api, name='api')
+    url(r'^', app.views.myapi, name='api')
 ]
