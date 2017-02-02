@@ -10,7 +10,7 @@ def myapi(request, *args, **kwargs):
     assert isinstance(request, HttpRequest)
     if request.method == "GET":
         if len(args) == 0:
-            data = json.dumps('{"My Api version" : "v1.0"}')
+            data = json.dumps({"My Api version" : "v1.0"})
             return HttpResponse(data, content_type='application/json')
         else:
             pass
