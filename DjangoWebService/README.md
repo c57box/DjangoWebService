@@ -1,25 +1,27 @@
-Set up the Django app:
+Steps of setting up this app:
 
-Create a virtualenv
+1. Clone repository https://github.com/c57box/DjangoWebService
+
+2. Create a virtualenv
 
 - `cd DjangoWebService`
 - `virtualenv venv`
 
-Install package 
+3. Install django
 
 - `venv\scripts\activate`
 - `pip install django`
 - `venv\scripts\deactivate`
 
-Migration
+4. Migration
 
 - `cd exampleapp`
 - `python manage.py migrate`
 
-Run Test Cases
+5. Run Test Cases
 - `python manage.py test`
 
-Run server
+6. Run server
 
 - `python manage.py runserver` then open URL http://127.0.0.1:8000/
 
