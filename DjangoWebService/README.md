@@ -19,6 +19,7 @@ Steps of setting up this app:
 - `python manage.py migrate`
 
 5. Run Test Cases
+
 - `python manage.py test`
 
 6. Run server
