@@ -1,51 +1,45 @@
 """
 Definition of APIs.
 """
+import sys
 import json
 from django.http import HttpRequest
 from django.http import HttpResponse
+from django.conf import settings
 
-def myapi(request, *args, **kwargs):
-    """ a django web api example without model"""
+def api_version(request):
+    """ A django web api example without model"""
     assert isinstance(request, HttpRequest)
+
     if request.method == "GET":
-        if len(args) == 0:
-            data = json.dumps({"My Api version" : "v1.0"})
-            return HttpResponse(data, content_type='application/json')
-        else:
-            pass
+        if settings.API_VERSION == {}:
+            settings.API_VERSION = {"MyApiVersion" : "v1.0"}
+
+        return HttpResponse(
+            json.dumps(settings.API_VERSION),
+            status=200,
+            content_type='application/json')
 
     if request.method == "POST":
-        if len(kwargs) == 0:
+        try:
+            json_data = json.loads(request.body.decode('utf-8'))
+
+            log = 'My API Version Number changed from %s to %s' % (
+                settings.API_VERSION['MyApiVersion'],
+                json_data['MyApiVersion'])
+            print(log)
+
+            settings.API_VERSION = json_data
+
+            return HttpResponse(status=200)
+        except:
+            e = sys.exc_info()[0]
+            print('TestPost failed. %s' % (e))
             return HttpResponse(status=400)
-        else:
-            pass
 
     if request.method == "PUT":
-        try:
-            id = int(args[0])
-            pass
-        except ValueError:
-            return HttpResponse(status=400)
-        if len(kwargs) == 0:
-            return HttpResponse(status=400)
-        else:
-            pass
-
+        pass
     if request.method == "PATCH":
-        try:
-            id = int(args[0])
-            pass
-        except ValueError:
-            return HttpResponse(status=404)
-        if len(kwargs) == 0:
-            return HttpResponse(status=404)
-        else:
-            pass
-
+        pass
     if request.method == "DELETE":
-        try:
-            id = int(args[0])
-            pass
-        except ValueError:
-            return HttpResponse(status=400)
+        pass

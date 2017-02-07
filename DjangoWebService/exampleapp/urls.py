@@ -5,11 +5,7 @@ Definition of urls for DjangoWebService.
 from django.conf.urls import url
 import app.views
 
-# Uncomment the next lines to enable the admin:
-# from django.conf.urls import include
-# from django.contrib import admin
-# admin.autodiscover()
-
+# Wire up our API using automatic URL routing.
 urlpatterns = [
-    url(r'^', app.views.myapi, name='api')
+    url(r'^', app.views.api_version, name='api_version')
 ]
