@@ -2,10 +2,12 @@ Steps of setting up this app:
 
 1. Clone repository https://github.com/c57box/DjangoWebService
 
+
 2. Create a virtualenv
 
 - `cd DjangoWebService`
 - `virtualenv venv`
+
 
 3. Install django
 
@@ -13,14 +15,17 @@ Steps of setting up this app:
 - `pip install django`
 - `venv\scripts\deactivate`
 
+
 4. Migration
 
 - `cd exampleapp`
 - `python manage.py migrate`
 
+
 5. Run Test Cases
 
 - `python manage.py test`
+
 
 6. Run server
 
