@@ -19,7 +19,7 @@ Migration
 Run Test Cases
 - `python manage.py test`
 
-runserver
+Run server
 
 - `python manage.py runserver` then open URL http://127.0.0.1:8000/
 
